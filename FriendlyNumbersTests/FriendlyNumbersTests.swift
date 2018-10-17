@@ -35,6 +35,15 @@ class FriendlyNumbersTests: XCTestCase {
     }
     
     func testReadMeExamples() {
-        XCTAssertEqual(  15349.FNSimple,  "15.3K")
+        XCTAssertEqual(    1530.FNMostSimple,    "1K")
+        XCTAssertEqual(    1530.FNSimple,      "1.5K")
+        XCTAssertEqual(   15320.FNMostSimple,   "15K")
+        XCTAssertEqual(   15320.FNSimple,     "15.3K")
+        XCTAssertEqual(  153200.FNMostSimple,  "153K")
+        XCTAssertEqual(  153200.FNSimple,    "153.2K")
+        XCTAssertEqual( 1532200.FNMostSimple,    "1M")
+        XCTAssertEqual( 1532200.FNSimple,      "1.5M")
+        XCTAssertEqual(15300000.FNMostSimple,   "15M")
+        XCTAssertEqual(15300000.FNSimple,     "15.3M")
     }
 }
