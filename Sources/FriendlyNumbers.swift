@@ -18,18 +18,18 @@ extension Int {
     }
     
     public var simpleFriendlyDigits: Int {
-        if self < 1000000 {
-            if self / 1000 == 0 {
-                return self % 1000
-            } else {
-                return self / 1000
-            }
+        let divisor: Double
+        if self < 1000 {
+            return self
+        } else if self < 1000000 {
+            divisor = 1000.0
+            return Int(Double(self) / divisor)
+        } else if self < 1000000000 {
+            divisor = 1000000.0
+            return Int(Double(self) / divisor)
         } else {
-            if self / 1000000 == 0 {
-                return self % 1000000
-            } else {
-                return self / 1000000
-            }
+            divisor = 1000000000.0
+            return Int(Double(self) / divisor)
         }
     }
     
@@ -44,13 +44,15 @@ extension Int {
     public var friendlyDigits: Double {
         let divisor: Double
         if self < 1000 {
-            divisor = 1.0
-            return (Double(self) / divisor).roundTo(places: 1)
+            return Double(self)
         } else if self < 1000000 {
             divisor = 1000.0
             return (Double(self) / divisor).roundTo(places: 1)
-        } else {
+        } else if self < 1000000000 {
             divisor = 1000000.0
+            return (Double(self) / divisor).roundTo(places: 1)
+        } else {
+            divisor = 1000000000.0
             return (Double(self) / divisor).roundTo(places: 1)
         }
     }
@@ -61,7 +63,7 @@ extension Int {
         switch(self / 1000) {
         case 1..<1000: return "K"
         case 1000..<1000000: return "M"
-        default: return "M"
+        default: return "B"
         }
     }
 }
