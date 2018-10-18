@@ -14,7 +14,7 @@ import Foundation
 extension Int {
     
     public var FNMostSimple: String {
-        return "\(self.simpleFriendlyDigits)\(self.valueLetter ?? "")"
+        return "\(self.simpleFriendlyDigits)\(self.valueLetter)"
     }
     
     public var simpleFriendlyDigits: Int {
@@ -34,16 +34,10 @@ extension Int {
     }
     
     public var FNSimple: String {
-        let number: String
-        if self > 10000000 && self % 1000 == 0 {
-            number = String(self.friendlyDigits)
-            return "\(number)\(self.valueLetter ?? "")"
-        } else if self < 1000 || self % 1000 == 0 {
-            number = String(Int(self.friendlyDigits))
-            return "\(number)"
+        if self < 1000 {
+            return "\(self)"
         } else {
-            number = String(self.friendlyDigits)
-            return "\(number)\(self.valueLetter ?? "")"
+            return "\(self.friendlyDigits)\(self.valueLetter)"
         }
     }
     
@@ -61,7 +55,7 @@ extension Int {
         }
     }
     
-    public var valueLetter: String? {
+    public var valueLetter: String {
         guard self > 999 else { return "" }
 
         switch(self / 1000) {
