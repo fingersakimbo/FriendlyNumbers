@@ -63,4 +63,9 @@ class FriendlyNumbersTests: XCTestCase {
         XCTAssertEqual( 1000000.FNSimple,       "1.0M")
         XCTAssertEqual( 1000000.FNMostSimple,     "1M")
     }
+    
+    func testBillions() {
+        XCTAssertEqual( 1_000_000_000.FNSimple,   "1.0B")
+        XCTAssertEqual( 1_000_000_000.FNMostSimple, "1B")
+    }
 }
