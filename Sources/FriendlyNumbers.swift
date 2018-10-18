@@ -68,6 +68,8 @@ extension Int {
     }
     
     public var valueLetter: String? {
+        guard self > 999 else { return "" }
+
         switch(self / 1000) {
         case 1..<1000: return "K"
         case 1000..<1000000: return "M"
