@@ -52,14 +52,8 @@ extension Int {
         if self < 1000 {
             divisor = 1.0
             return (Double(self) / divisor).roundTo(places: 1)
-        } else if self < 100000 {
-            divisor = 1000.0
-            return (Double(self) / divisor).roundTo(places: 1)
         } else if self < 1000000 {
             divisor = 1000.0
-            return (Double(self) / divisor).roundTo(places: 1)
-        } else if self < 10000000 {
-            divisor = 1000000.0
             return (Double(self) / divisor).roundTo(places: 1)
         } else {
             divisor = 1000000.0
